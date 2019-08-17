@@ -1,0 +1,27 @@
+{
+  "name": "with-redux",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@emotion/core": "^10.0.15",
+    "@emotion/styled": "^10.0.15",
+    "next": "latest",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-redux": "^5.0.1",
+    "recompose": "^0.30.0",
+    "redux": "^3.6.0",
+    "redux-devtools-extension": "^2.13.2"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^12.7.1",
+    "@types/react": "^16.8.25",
+    "@types/react-dom": "^16.8.5",
+    "typescript": "^3.5.3"
+  }
+}
