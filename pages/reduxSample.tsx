@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { tick } from '../store/actions'
-import Examples from '../components/examples'
+import Examples from '../reduxSampleComponents/examples'
 import { NextPage } from 'next'
 
 interface IndexProps {
