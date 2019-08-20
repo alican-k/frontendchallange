@@ -4,7 +4,7 @@ import Programs from '../components/Programs'
 
 const Series = () => 
 	<Layout pageTitle='Popular Series'>
-		<Programs type='series' />
+		<Programs programType='series' />
 	</Layout>
 
 export default Series

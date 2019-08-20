@@ -1,34 +1,38 @@
-import { TICK, INCREMENT, DECREMENT, RESET, ActionType } from './actions'
+import { LOAD, LOADED, SEARCH, SORT, ActionType } from './actions'
+import { Program, LoadState } from '../types'
 
 interface State {
-	lastUpdate: number
-	count: number
-	light: boolean
+	searchTerm: string
+	sortType: string
+	programs: Program[]
+	load: LoadState
+	error: boolean
 }
 
 export const initialState: State = {
-	lastUpdate: 0,
-	count: 0,
-	light: false
+	searchTerm: '',
+	sortType: '',
+	programs: [],
+	load: 'none',
+	error: false
 }
 
 const reducer = (state = initialState, action: ActionType): State => {
   switch (action.type) {
-		case TICK:{
-			const {timestamp: lastUpdate, isServer: light} = action.payload
-			return {...state, lastUpdate, light}
+		case LOAD:{
+			const load = 'loading'
+			return {...state, load}
 		}
-		case INCREMENT:{
-			const count = state.count + 1
-			return {...state, count}
+		case LOADED:{
+			const { programs } = action.payload
+			const load = 'loaded'
+			return {...state, programs, load}
 		}
-		case DECREMENT:{
-			const count = state.count - 1		
-			return {...state, count}
+		case SEARCH:{
+			return state
 		}
-		case RESET:{
-			const { count } = initialState
-			return {...state, count}
+		case SORT:{
+			return state
 		}
     default:
       return state

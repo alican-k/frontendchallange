@@ -1,28 +1,30 @@
-import React from 'react'
-import { View_CardList, View_InputBar } from '../styled/Views'
-import Card from '../Card'
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
+import { fetchPrograms, search } from '../../store/actions'
+import { View_InputBar } from '../styled/Views'
 import Search from './Search'
 import Sort from './Sort'
+import ProgramList from './ProgramList'
 
-const Programs = () => 
-	<>
-		<View_InputBar>
-			<Search />
-			<Sort />
-		</View_InputBar>
-		<View_CardList>
-			<Card title='Series Title' />
-			<Card title='Series Title' />
-			<Card title='Series Title' />
-			<Card title='Series Title' />
-			<Card title='Series Title' />
-			<Card title='Series Title' />
-			<Card title='Series Title' />
-			<Card title='Series Title' />
-			<Card title='Series Title' />
-			<Card title='Series Title' />
-			<Card title='Series Title' />
-		</View_CardList>
-	</>
+const Programs = ({ fetchPrograms, search }) => {
+	
+	useEffect(() => {
+		fetchPrograms('series')
+	})
+	
+	return (
+		<>
+			<View_InputBar>
+				<Search onSearch={fetchPrograms} />
+				<Sort />
+			</View_InputBar>
 
-export default Programs
+			<ProgramList />
+		</>
+	)
+}
+
+export default connect(
+	null,
+	{ fetchPrograms, search }
+)(Programs)

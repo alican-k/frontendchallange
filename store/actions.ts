@@ -1,33 +1,69 @@
-export const TICK = 'TICK'
-export const INCREMENT = 'INCREMENT'
-export const DECREMENT = 'DECREMENT'
-export const RESET = 'RESET'
+import {Program, ProgramType, SortType} from '../types'
+import { AnyAction } from 'redux'
+import { ThunkAction, ThunkDispatch } from 'redux-thunk'
 
-export type ActionNames = 'TICK' | 'INCREMENT' | 'DECREMENT' | 'RESET'
+export const LOAD = 'LOAD'
+export const LOADED = 'LOADED'
+export const SEARCH = 'SEARCH'
+export const SORT = 'SORT'
 
-interface TickAction {
-	type: typeof TICK
+export type ActionNames = 'LOAD' | 'LOADED' | 'SEARCH' | 'SORT'
+
+interface LoadAction {
+	type: typeof LOAD
 	payload: {
-		isServer: boolean
-		timestamp: number
+		programType: ProgramType
 	}
 }
-interface IncrementAction { type:  typeof INCREMENT }
-interface DecrementAction { type:  typeof DECREMENT }
-interface ResetAction { type:  typeof RESET }
-
-export const tick = (p: {isServer: boolean}): TickAction => ({
-	type: TICK, 
+interface LoadedAction { 
+	type:  typeof LOADED
 	payload: {
-		isServer: p.isServer, 
-		timestamp: Date.now()
+		programs: Program[]
 	}
+}
+interface SearchAction { 
+	type:  typeof SEARCH
+	payload: {
+		searchTerm: string
+	}
+}
+interface SortAction {
+	type: typeof SORT
+	payload: {
+		sortType: SortType
+	}
+}
+
+export const fetchPrograms = (programType: ProgramType): ThunkAction<Promise<void>, {}, {}, AnyAction> => {
+	return async (dispatch: ThunkDispatch<{}, {}, AnyAction>): Promise<void> => {
+		dispatch(load(programType))
+		return fetch('http://localhost:3000/api')
+			.then(response => response.json())
+			.then((data) => {
+				console.log('data: ', data.data.entries)
+				dispatch(loaded([]))
+			})
+	}
+}
+
+const load = (programType: ProgramType): LoadAction => ({ 
+	type: LOAD,
+	payload: { programType }
 })
 
-export const incrementCount = (): IncrementAction => ({ type: INCREMENT })
+const loaded = (programs: Program[]): LoadedAction => ({ 
+	type: LOADED,
+	payload: { programs }
+})
 
-export const decrementCount = (): DecrementAction => ({ type: DECREMENT })
+export const search = (searchTerm: string): SearchAction => ({ 
+	type: SEARCH,
+	payload: { searchTerm }
+})
 
-export const resetCount = (): ResetAction => ({ type: RESET })
+export const sort = (sortType: SortType): SortAction => ({ 
+	type: SORT,
+	payload: { sortType }
+})
 
-export type ActionType = TickAction | IncrementAction | DecrementAction | ResetAction
+export type ActionType = LoadAction | LoadedAction | SearchAction | SortAction
