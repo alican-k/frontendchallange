@@ -1,21 +1,21 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { fetchPrograms, search } from '../../store/actions'
+import { load, search } from '../../store/actions'
 import { View_InputBar } from '../styled/Views'
 import Search from './Search'
 import Sort from './Sort'
 import ProgramList from './ProgramList'
 
-const Programs = ({ fetchPrograms, search }) => {
+const Programs = ({ load, search }) => {
 	
 	useEffect(() => {
-		fetchPrograms('series')
+		load('series')
 	})
 	
 	return (
 		<>
 			<View_InputBar>
-				<Search onSearch={fetchPrograms} />
+				<Search onSearch={search} />
 				<Sort />
 			</View_InputBar>
 
@@ -26,5 +26,5 @@ const Programs = ({ fetchPrograms, search }) => {
 
 export default connect(
 	null,
-	{ fetchPrograms, search }
+	{ load, search }
 )(Programs)

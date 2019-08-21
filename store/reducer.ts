@@ -1,37 +1,32 @@
-import { LOAD, LOADED, SEARCH, SORT, ActionType } from './actions'
-import { Program, LoadState } from '../types'
+import { ActionType, getType } from 'typesafe-actions'
+import * as actions from './actions'
+import { Program, LoadState, SortTerm, RootState } from '../types'
 
-interface State {
-	searchTerm: string
-	sortType: string
-	programs: Program[]
-	load: LoadState
-	error: boolean
-}
+type Action = ActionType<typeof actions>
 
-export const initialState: State = {
+export const initialState: RootState = {
 	searchTerm: '',
-	sortType: '',
+	sortTerm: 'none',
 	programs: [],
 	load: 'none',
 	error: false
 }
 
-const reducer = (state = initialState, action: ActionType): State => {
+const reducer = (state = initialState, action: Action): RootState => {
   switch (action.type) {
-		case LOAD:{
+		case getType(actions.load): {
 			const load = 'loading'
 			return {...state, load}
 		}
-		case LOADED:{
-			const { programs } = action.payload
+		case getType(actions.loaded): {
+			const programs: Program[] = action.payload as Program[]
 			const load = 'loaded'
 			return {...state, programs, load}
 		}
-		case SEARCH:{
+		case getType(actions.search): {
 			return state
 		}
-		case SORT:{
+		case getType(actions.sort): {
 			return state
 		}
     default:
