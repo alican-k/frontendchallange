@@ -11,6 +11,12 @@ const options = [
 	{label: 'Year Asc', value: 'yearAsc'},
 	{label: 'Year Desc', value: 'yearDesc'},
 ]
+export const optionMap = {
+	titleAsc: 'Title Asc',
+	titleDesc: 'Title Desc',
+	yearAsc: 'Year Asc',
+	yearDesc: 'Year Desc'
+}
 
 const Container = styled(View_SortBox__Options)(
 	({ expanded }) => expanded ? { } : { display: 'none' }

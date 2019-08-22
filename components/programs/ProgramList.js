@@ -2,24 +2,47 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { View_CardList } from '../styled/Views'
 import Card from '../Card'
+import { defaultTo, pick, filter, includes, ascend, descend, prop, toLower, sort } from 'ramda'
+import { compose, withProps } from 'recompose'
 
-const ProgramList = ({ programs, load, error }) => 
+const ProgramList = ({ filteredPrograms, load, error }) => 
 	load === 'error'
 		? <p>error</p>
 		: load === 'loading'
 			? <p>loading</p>
-			: load === 'loaded' && programs.length === 0 
+			: load === 'loaded' && filteredPrograms.length === 0 
 				? <p>no result</p>
 				: (
 					<View_CardList>
-						{programs.map(program => {
-							const {title, images: {poster: { url }}} = program
+						{filteredPrograms.map(program => {
+							const {title, image: { url }} = program
 							return <Card key={url} title={title} imgSource={url} />
 						})}
 					</View_CardList>
 				)
 
-export default connect(
-	({ programs, load, error }) => ({ programs, load, error }),
-	null
+const sortFunctions = {
+	titleAsc: ascend(prop('title')),
+	titleDesc: descend(prop('title')),
+	yearAsc: ascend(prop('releaseYear')),
+	yearDesc: descend(prop('releaseYear'))
+}
+
+const filterPred = term => compose(includes(term), toLower, prop('title'))
+
+export default compose(
+	connect(pick(['programs', 'searchTerm', 'sortTerm', 'load', 'error']), null),
+	withProps(({ programs, searchTerm, sortTerm }) => {
+		const searchTermLower = toLower(defaultTo('', searchTerm))
+		
+		const p1 = searchTerm && searchTerm.length > 2 
+			? filter(filterPred(searchTermLower))(programs)
+			: programs
+		
+		const p2 = sortTerm 
+			? sort(sortFunctions[sortTerm])(p1)
+			: p1
+
+		return { filteredPrograms: p2 }
+	})
 )(ProgramList)

@@ -6,19 +6,18 @@ const Search = ({ onSearch }) => {
 	const [input, setInput] = useState('')
 	
 	return (
-		<form onSubmit={() => onSearch(input)}>
 			<View_SearchBox>
 				<Search__Input 
 					placeholder='Search..' 
 					onChange={event => setInput(event.target.value)}
 				/>
-				<Search__Button 
+				<Search__Button
+					type='button' 
 					onClick={() => onSearch(input)}
 				>
 					Ara
 				</Search__Button>
 			</View_SearchBox>
-		</form>
 	)
 }
 

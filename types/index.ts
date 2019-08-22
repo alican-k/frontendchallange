@@ -4,7 +4,7 @@ import { ActionType } from 'typesafe-actions'
 export type Action = ActionType<typeof actions>
 
 export type ProgramType = 'series' | 'movie'
-export type SortTerm = 'none' | 'titleAsc' | 'titleDesc' | 'yearAsc' | 'yearDesc'
+export type SortTerm =  'titleAsc' | 'titleDesc' | 'yearAsc' | 'yearDesc'
 export type LoadState = 'loading' | 'loaded' | 'none' 
 
 export interface Program {
@@ -22,6 +22,7 @@ export interface Program {
 }
 
 export interface RootState {
+	readonly programType: ProgramType
 	readonly searchTerm: string
 	readonly sortTerm: SortTerm
 	readonly programs: Program[]

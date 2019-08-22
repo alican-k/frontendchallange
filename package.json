@@ -10,6 +10,7 @@
     "@emotion/core": "^10.0.15",
     "@emotion/styled": "^10.0.15",
     "next": "latest",
+    "ramda": "^0.26.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-outside-click-handler": "^1.2.4",

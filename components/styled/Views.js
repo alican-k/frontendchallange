@@ -59,14 +59,22 @@ export const View_Card__Normal = styled.div`
 export const View_Card__Link = styled(View_Card__Normal.withComponent('a'))`
 	text-decoration: none;
 `
-
-export const View_Card_Thumb = styled.div`
-	${rowCenterCenter};
+export const View_Card_Image = styled.img`
 	flex: 1;
 	align-self: stretch;
 	background-color: ${constants.darkest};
+	object-fit: contain;
 	margin-bottom: 10px;
+	overflow: hidden;
 `
+
+// export const View_Card_Thumb = styled.div`
+// 	${rowCenterCenter};
+// 	flex: 1;
+// 	align-self: stretch;
+// 	background-color: ${constants.darkest};
+// 	margin-bottom: 10px;
+// `
 export const View_Card_Label = styled.div`
 	position: absolute;
 	top: 100px;

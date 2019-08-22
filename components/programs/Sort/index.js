@@ -1,18 +1,19 @@
 import React, { useState } from 'react'
 import { Text_SmallerDarker, Text_SmallerGreyDark } from '../../styled/Texts'
 import { Link_SortBox } from '../../styled/Links'
-import Options from './Options'
+import Options, { optionMap } from './Options'
 
-const Sort = () => {
+const Sort = ({ sortTerm, sort }) => {
 	const [expanded, setExpanded] = useState(false)
+	const sortByText = sortTerm ? `: ${optionMap[sortTerm]}` : ''
 	return (
 		<Link_SortBox href='#' onClick={() => setExpanded(!expanded)}>
-			<Text_SmallerGreyDark>Sort By</Text_SmallerGreyDark>
+			<Text_SmallerGreyDark>Sort By{sortByText}</Text_SmallerGreyDark>
 			<Options
-				selectedValue='option2'
+				selectedValue={sortTerm}
 				expanded={expanded}
 				setExpanded={setExpanded}
-				onSelect={(selectedValue) => console.log(selectedValue)} 
+				onSelect={sort} 
 			/>
 		</Link_SortBox>
 	)

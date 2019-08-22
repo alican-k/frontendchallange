@@ -11,9 +11,9 @@ declare global {
   }
 }
 
-const composeEnhancers = !process.env.BROWSER 
-	? compose
-	: (window && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose
+const composeEnhancers = process.browser 
+	? ((window && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose) 
+	: compose
 
 const epicMiddleware = createEpicMiddleware<Action, Action, RootState>()
 
