@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 import { L_Header, View_SiteTitle } from './styled/Views'
 import { Text_HugeWhiteDarker } from './styled/Texts'
 import { Link_Login, Link_StartTrial } from './styled/Links'
 
-const Header = () => 
+const Header: FunctionComponent = () => 
 	<L_Header>
 		<View_SiteTitle>
 			<Text_HugeWhiteDarker>

@@ -1,15 +1,13 @@
-import { compose, filter, propEq, propSatisfies, gte, take } from 'ramda'
+import { compose, filter, propEq, propSatisfies, lte } from 'ramda'
 
 const filterEntries = programType => compose(
-	// take(21),
-	// filter(propEq('programType', programType)),
-	filter(propSatisfies(gte(2010), 'releaseYear'))
+	filter(propEq('programType', programType)),
+	filter(propSatisfies(lte(2010), 'releaseYear'))
 )
 
 export default (req, res) => {
 	res.setHeader('Content-Type', 'application/json')
 	const entries = filterEntries(req.query.type)(sampleData.entries)
-	console.log('len: ', entries.length)
   res.statusCode = 200
   res.end(JSON.stringify({ data: entries }))
 }

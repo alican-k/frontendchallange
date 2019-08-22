@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 import BaseCss from '../commonStyles/base'
 import { L_Root, L_Content } from './styled/Views'
 import Header from './Header'
 import Footer from './Footer'
 import SubHeader from './SubHeader'
 
-const Layout = ({ pageTitle, children }) => 
+interface LayoutProps {
+	pageTitle: string
+}
+
+const Layout: FunctionComponent<LayoutProps> = ({ pageTitle, children }) => 
 	<L_Root>
 		<BaseCss />
 		<Header />

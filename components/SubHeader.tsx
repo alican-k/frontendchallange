@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 import { L_SubHeader } from './styled/Views'
 import { Text_BigWhiteDarker } from './styled/Texts'
 
-const SubHeader = ({ pageTitle }) => 
+interface SubHeaderProps {
+	pageTitle: string
+}
+
+const SubHeader: FunctionComponent<SubHeaderProps> = ({ pageTitle }) => 
 	<L_SubHeader>
 		<Text_BigWhiteDarker>
 			{pageTitle}

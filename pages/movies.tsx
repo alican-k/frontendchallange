@@ -2,9 +2,9 @@ import React from 'react'
 import Layout from '../components/Layout'
 import Programs from '../components/Programs'
 
-const Series = () => 
-	<Layout pageTitle='Popular Series'>
+const Movies = () => 
+	<Layout pageTitle='Popular Movies'>
 		<Programs programType='movie' />
 	</Layout>
 
-export default Series
+export default Movies

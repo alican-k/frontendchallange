@@ -6,8 +6,6 @@ import { map as r_map, dissoc, compose, path, prop } from 'ramda'
 import { Action, RootState, ProgramType, SortTerm } from '../types'
 import * as actions from "../store/actions"
 
-const url = 'http://localhost:3000/api'
-
 const loadEpic: Epic<Action, Action, RootState> = (action$, state$) =>
 	action$.pipe(
 		filter(isActionOf(actions.load)),

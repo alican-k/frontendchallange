@@ -5,19 +5,17 @@ export type Action = ActionType<typeof actions>
 
 export type ProgramType = 'series' | 'movie'
 export type SortTerm =  'titleAsc' | 'titleDesc' | 'yearAsc' | 'yearDesc'
-export type LoadState = 'loading' | 'loaded' | 'none' 
+export type LoadState = 'loading' | 'loaded' 
 
 export interface Program {
 	title: string
 	description: string
 	programType: ProgramType
 	releaseYear: number
-	images: {
-		poster: {
-			url: string
-			width: number
-			height: number
-		}
+	image: {
+		url: string
+		width: number
+		height: number
 	}
 }
 

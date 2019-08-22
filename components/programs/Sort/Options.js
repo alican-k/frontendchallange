@@ -4,6 +4,7 @@ import OutsideClickHandler from 'react-outside-click-handler'
 import { View_SortBox__Options } from '../../styled/Views'
 import { Link_SortBox__Option} from '../../styled/Links'
 import { constants } from '../../../commonStyles'
+import { SortTerm } from '../../../types'
 
 const options = [
 	{label: 'Title Asc', value: 'titleAsc'},

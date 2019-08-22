@@ -1,8 +1,12 @@
-import React, { useState } from 'react'
+import React, { FunctionComponent, useState } from 'react'
 import { View_SearchBox } from '../styled/Views'
 import { Search__Button, Search__Input } from '../styled/Misc'
 
-const Search = ({ onSearch }) => {
+interface SearchProps {
+	onSearch: Function
+}
+
+const Search: FunctionComponent<SearchProps> = ({ onSearch }) => {
 	const [input, setInput] = useState('')
 	
 	return (

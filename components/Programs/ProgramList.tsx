@@ -1,12 +1,19 @@
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 import { connect } from 'react-redux'
 import { View_CardList } from '../styled/Views'
 import Card from '../Card'
 import { defaultTo, pick, filter, includes, ascend, descend, prop, toLower, sort } from 'ramda'
 import { compose, withProps } from 'recompose'
+import { Program, LoadState } from '../../types'
 
-const ProgramList = ({ filteredPrograms, load, error }) => 
-	load === 'error'
+interface ProgramListProps {
+	filteredPrograms: Program[]
+	load: LoadState
+	error: string
+}
+
+const ProgramList: FunctionComponent<ProgramListProps> = ({ filteredPrograms, load, error }) => 
+	error
 		? <p>error</p>
 		: load === 'loading'
 			? <p>loading</p>
