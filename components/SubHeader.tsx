@@ -6,10 +6,12 @@ interface SubHeaderProps {
 }
 
 const SubHeader: FunctionComponent<SubHeaderProps> = ({ pageTitle }) => 
-	<Flex iCenter className='layout_subheader'>
-		<H2 className='font--bigWhiteDarker'>
-			{pageTitle}
-		</H2>
+	<Flex jCenter className='layout_subheader'>
+		<Flex full className='max-width'>
+			<H2 className='font--bigWhiteDarker'>
+				{pageTitle}
+			</H2>
+		</Flex>
 	</Flex>
 
 export default SubHeader

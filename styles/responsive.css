@@ -1,0 +1,31 @@
+@media only screen and (max-width: 550px) {
+	.layout_header_inner {
+		flex-direction: column;
+		padding-bottom: 10px;
+	}
+}
+@media only screen and (max-width: 640px) {
+	.layout_footer_links {
+		flex-direction: column;
+	}
+	.seperator {
+		display: none;
+	}
+	.layout_footer_copyright {
+		justify-content: center;
+	}
+}
+@media only screen and (max-width: 800px) {
+	.inputBar {
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+	}
+	.input--search {
+		width: 350px;
+		margin-bottom: 20px;
+	}
+	.input--sort {
+		width: 340px;
+	}
+}

@@ -11,3 +11,6 @@
 .display-none {
 	display: none;
 }
+.max-width {
+	max-width: 980px;
+}

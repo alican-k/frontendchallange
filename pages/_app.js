@@ -11,6 +11,7 @@ import '../styles/card.css'
 import '../styles/font.css'
 import '../styles/misc.css'
 import '../styles/inputBar.css'
+import '../styles/responsive.css'
 import styles from '../styles'
 
 class MyApp extends App {

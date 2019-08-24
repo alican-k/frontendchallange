@@ -9,12 +9,15 @@ interface LayoutProps {
 }
 
 const Layout: FunctionComponent<LayoutProps> = ({ pageTitle, children }) => 
-	
 		<Flex column className='layout'>
 			<Header />
 			<SubHeader pageTitle={pageTitle} />
-			<Flex column full className='layout_content'>
-				{ children }
+			<Flex column iStretch full className='layout_content'>
+				<Flex row full jCenter>
+					<Flex row full className='max-width'>
+						{ children }
+					</Flex>
+				</Flex>
 			</Flex>
 			<Footer />
 		</Flex>

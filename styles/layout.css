@@ -8,20 +8,20 @@ html, body, a, div {
 }
 .layout_header {
 	background-color: var(--blue);
-	height: 63px;
-	min-height: 63px;
-	padding: 0 130px 0 130px;
+	/* height: 63px; */
+	/* min-height: 63px; */
+	padding: 0 10px 0 10px; 
 }
 .layout_subheader {
 	background-color: var(--darker);
 	height: 59px;
 	min-height: 59px;
-	padding: 0 130px 0 130px;
+	padding: 0 10px 0 10px;
 }
 .layout_content {
-	padding: 0 130px 0 130px;
+	padding: 0 10px 0 10px;
 }
 .layout_footer {
 	background-color: var(--darkest);
-	padding: 20px 130px 20px 130px;
+	padding: 20px 10px 20px 10px;
 }
