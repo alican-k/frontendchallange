@@ -1,0 +1,42 @@
+.font {}
+
+.font--hugeWhiteDarker {
+	font-family: var(--helvetica);
+	font-size: var(--font-huge);
+	color: var(--whiteDarker);
+}
+.font--biggerWhiteDarker {
+	font-family: var(--helvetica);
+	font-size: var(--font-bigger);
+	color: var(--whiteDarker);
+}
+.font--bigWhiteDarker {
+	font-family: var(--helvetica);
+	font-size: var(--font-bigger);
+	color: var(--whiteDarker);
+}
+.font--smallWhiteDarker {
+	font-family: var(--helvetica);
+	font-size: var(--font-small);
+	color: var(--whiteDarker);
+}
+.font--smallerDarkest {
+	font-family: var(--helvetica);
+	font-size: var(--font-smaller);
+	color: var(--darkest);
+}
+.font--smallerGreyDark {
+	font-family: var(--helvetica);
+	font-size: var(--font-smaller);
+	color: var(--greyDark);
+}
+.font--smallerGreyLight {
+	font-family: var(--helvetica);
+	font-size: var(--font-smaller);
+	color: var(--greyLight);
+}
+.font--tinyGreyLight {
+	font-family: var(--helvetica);
+	font-size: var(--font-tiny);
+	color: var(--greyLight);
+}

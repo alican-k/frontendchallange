@@ -9,6 +9,8 @@
   "dependencies": {
     "@emotion/core": "^10.0.15",
     "@emotion/styled": "^10.0.15",
+    "@zeit/next-css": "^1.0.1",
+    "classnames": "^2.2.6",
     "next": "latest",
     "ramda": "^0.26.1",
     "react": "^16.7.0",

@@ -1,0 +1,72 @@
+.inputBar {
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+
+.input {
+	height: 37px; 
+}
+
+.input--search {
+	width: 433px;
+}
+.input--search_input {
+	flex: 1;
+	box-sizing: border-box;
+	border: none;
+	padding-left: 8px;
+	font-size: var(--font-smaller);
+	color: var(--darker);
+}
+.input--search_input:placeholder {
+	font-size: var(--font-smaller);
+	color: var(--greyDark);
+}
+.input--search_button {
+	position: relative;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	width: 64px;
+	background-color: var(--blue);
+	box-sizing: border-box;
+	border: none;
+	color: white;
+}
+
+.input--sort {
+	position: relative;
+	width: 286px;
+	padding-left: 8px;
+	cursor: pointer;
+}
+.input--sort_options {
+	position: absolute;
+	top: 37px;
+	right: 0;
+	left: 0;
+	z-index: 2;
+	background-color: var(--white);
+}
+.input--sort_options_option {
+	display: flex;
+	align-items: center;
+	height: 37px;
+	padding-left: 8px;
+}
+.input--sort_options_option--selected {
+	background-color: var(--blue);
+	color: var(--whiteDarker);
+}
+.input--sort_options_option--selected:hover {
+	opacity: 0.8;
+} 
+.input--sort_options_option--not-selected {
+	background-color: var(--white);
+	color: var(--darker);
+} 
+.input--sort_options_option--not-selected:hover {
+	background-color: var(--whiteDarker);
+	color: var(--darkest);
+} 
+

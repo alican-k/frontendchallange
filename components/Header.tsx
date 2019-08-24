@@ -1,21 +1,25 @@
 import React, { FunctionComponent } from 'react'
-import { L_Header, View_SiteTitle } from './styled/Views'
-import { Text_HugeWhiteDarker } from './styled/Texts'
-import { Link_Login, Link_StartTrial } from './styled/Links'
+import { Flex, H1, A } from './styled'
 
 const Header: FunctionComponent = () => 
-	<L_Header>
-		<View_SiteTitle>
-			<Text_HugeWhiteDarker>
+	<Flex iCenter className='layout_header'>
+		<Flex iCenter full>
+			<H1 className='font--hugeWhiteDarker'>
 				DEMO Streaming
-			</Text_HugeWhiteDarker>
-		</View_SiteTitle>
-		<Link_Login href='/login'>
+			</H1>
+		</Flex>
+		<A 
+			href='login' 
+			className='link link--big link--login'
+		>
 			Login
-		</Link_Login>
-		<Link_StartTrial href='/start-free-trial'>
+		</A>
+		<A 
+			href='/start-free-trial' 
+			className='link link--big link--startTrial'
+		>
 			Start your free trial
-		</Link_StartTrial>
-	</L_Header>
+		</A>
+	</Flex>
 
 export default Header

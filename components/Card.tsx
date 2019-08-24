@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from 'react'
-import { View_Card__Normal, View_Card__Link, View_Card_Label, View_Card_Image } from './styled/Views'
-import { Text_SmallerDarkest, Text_BiggerWhiteDarker } from './styled/Texts'
+import { Flex, A, Span } from './styled'
 import { imageUrls } from '../assets'
 
 interface CardProps {
@@ -12,19 +11,22 @@ interface CardProps {
 
 const Card: FunctionComponent<CardProps> = 
 	({ imgSource=imageUrls.placeholder, title, href, label }) => {
-		const Container = href ? View_Card__Link : View_Card__Normal
+		const Container = href ? A : 'div'
 		const containerProps = href ? { href } : {}
 
 		return (
 			<Container {...containerProps}>
-				<View_Card_Image src={imgSource} />
-				<Text_SmallerDarkest>{title}</Text_SmallerDarkest>
-				{label && (
-					<View_Card_Label>
-						<Text_BiggerWhiteDarker>{label}</Text_BiggerWhiteDarker>
-					</View_Card_Label>
-				)}
+				<Flex column className='card'>
+					<img src={imgSource} className='card_image' />
+					<Span className='font--smallerDarkest'>{title}</Span>
+					{label && (
+						<Flex jCenter className='card_label'>
+							<Span className='font--biggerWhiteDarker'>{label}</Span>							
+						</Flex>
+					)}
+				</Flex>
 			</Container>
 		)
 	}
+
 export default Card

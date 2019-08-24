@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react'
-import { View_CardList } from '../styled/Views'
 import Card from '../Card'
+import { Flex } from '../styled'
 import { Program, LoadState } from '../../types'
 
 interface ProgramListProps {
@@ -17,12 +17,12 @@ const ProgramList: FunctionComponent<ProgramListProps> = ({ programs, load, erro
 			: load === 'loaded' && programs.length === 0 
 				? <p>no result</p>
 				: (
-					<View_CardList>
+					<Flex wrap className='cards'>
 						{programs.map(program => {
 							const {title, image: { url }} = program
 							return <Card key={url} title={title} imgSource={url} />
 						})}
-					</View_CardList>
+					</Flex>
 				)
 
 export default ProgramList

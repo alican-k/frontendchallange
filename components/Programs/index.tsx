@@ -2,11 +2,11 @@ import React, { FunctionComponent, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { load as loadAction, search as searchAction, sort as sortAction } from '../../store/actions'
 import { filterPrograms } from '../../store/selectors'
-import { View_InputBar } from '../styled/Views'
 import Search from './Search'
 import Sort from './Sort'
 import ProgramList from './ProgramList'
 import { Program, ProgramType, SortTerm, LoadState, Action } from '../../types'
+import { Flex } from '../styled'
 
 interface ProgramsProps {
 	programs: Program[]
@@ -29,14 +29,14 @@ const Programs: FunctionComponent<ProgramsProps> =
 		const filtered = filterPrograms(programs, searchTerm, sortTerm)
 
 		return (
-			<>
-				<View_InputBar>
+			<Flex column>
+				<Flex iCenter jBetween className='inputBar'>
 					<Search onSearch={searchAction} />
 					<Sort sortTerm={sortTerm} sort={sortAction} />
-				</View_InputBar>
+				</Flex>
 
 				<ProgramList programs={filtered} load={load} error={error} />
-			</>
+			</Flex>
 		)
 }
 

@@ -1,16 +1,15 @@
 import React, { FunctionComponent } from 'react'
-import { L_SubHeader } from './styled/Views'
-import { Text_BigWhiteDarker } from './styled/Texts'
+import { Flex, H2 } from './styled'
 
 interface SubHeaderProps {
 	pageTitle: string
 }
 
 const SubHeader: FunctionComponent<SubHeaderProps> = ({ pageTitle }) => 
-	<L_SubHeader>
-		<Text_BigWhiteDarker>
+	<Flex iCenter className='layout_subheader'>
+		<H2 className='font--bigWhiteDarker'>
 			{pageTitle}
-		</Text_BigWhiteDarker>
-	</L_SubHeader>
+		</H2>
+	</Flex>
 
 export default SubHeader

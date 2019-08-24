@@ -1,6 +1,5 @@
 import React, { FunctionComponent, useState } from 'react'
-import { View_SearchBox } from '../styled/Views'
-import { Search__Button, Search__Input } from '../styled/Misc'
+import { Flex } from '../styled'
 
 interface SearchProps {
 	onSearch: Function
@@ -10,18 +9,21 @@ const Search: FunctionComponent<SearchProps> = ({ onSearch }) => {
 	const [input, setInput] = useState('')
 	
 	return (
-			<View_SearchBox>
-				<Search__Input 
+			<Flex className='input input--search shadow'>
+				<input 
+					type='text'
+					className='input--search_input'
 					placeholder='Search..' 
 					onChange={event => setInput(event.target.value)}
 				/>
-				<Search__Button
+				<button
 					type='button' 
+					className='input--search_button'
 					onClick={() => onSearch(input)}
 				>
 					Ara
-				</Search__Button>
-			</View_SearchBox>
+				</button>
+			</Flex>
 	)
 }
 

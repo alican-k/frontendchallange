@@ -1,0 +1,27 @@
+html, body, a, div {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+}
+.layout {
+	height: 100vh;
+}
+.layout_header {
+	background-color: var(--blue);
+	height: 63px;
+	min-height: 63px;
+	padding: 0 130px 0 130px;
+}
+.layout_subheader {
+	background-color: var(--darker);
+	height: 59px;
+	min-height: 59px;
+	padding: 0 130px 0 130px;
+}
+.layout_content {
+	padding: 0 130px 0 130px;
+}
+.layout_footer {
+	background-color: var(--darkest);
+	padding: 20px 130px 20px 130px;
+}

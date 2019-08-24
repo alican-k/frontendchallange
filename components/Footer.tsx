@@ -1,28 +1,36 @@
 import React, { FunctionComponent } from 'react'
-import { L_Footer, View_RowStartCenter, View_Seperator } from './styled/Views'
-import { Text_TinyGreyLight } from './styled/Texts'
-import { Link_Footer } from './styled/Links'
+import {Flex, A, P, } from './styled'
+import { withProps } from 'recompose'
 
-const Header: FunctionComponent = () => 
-	<L_Footer>
-		<View_RowStartCenter>
-			<Link_Footer href='/home'>Home</Link_Footer>
-			<View_Seperator />
-			<Link_Footer href='/home'>Terms and Conditions</Link_Footer>
-			<View_Seperator />
-			<Link_Footer href='/home'>Privacy Policy</Link_Footer>
-			<View_Seperator />
-			<Link_Footer href='/home'>Collection Statement</Link_Footer>
-			<View_Seperator />
-			<Link_Footer href='/home'>Help</Link_Footer>
-			<View_Seperator />
-			<Link_Footer href='/home'>Manage Account</Link_Footer>
-		</View_RowStartCenter>
-		<View_RowStartCenter>
-			<Text_TinyGreyLight>
+const Seperator = withProps({ className: 'seperator'})(Flex)
+const FooterLink = withProps({ className: 'link link--small'})(A)
+
+const Footer: FunctionComponent = () => 
+	<Flex column className='layout_footer'>
+		<Flex iCenter>
+			<FooterLink href='/home'>Home</FooterLink>
+
+			<Seperator />
+			<FooterLink href='/home'>Terms and Conditions</FooterLink>
+			
+			<Seperator />
+			<FooterLink href='/home'>Privacy Policy</FooterLink>
+			
+			<Seperator />
+			<FooterLink href='/home'>Collection Statement</FooterLink>
+			
+			<Seperator />
+			<FooterLink href='/home'>Help</FooterLink>
+			
+			<Seperator />
+			<FooterLink href='/home'>Manage Account</FooterLink>
+		</Flex>
+		
+		<Flex iCenter>
+			<P className='font--tinyGreyLight'>
 				Copyright @ 2016 Demo Streaming. All Rights Reserved.
-			</Text_TinyGreyLight>
-		</View_RowStartCenter>
-	</L_Footer>
+			</P>
+		</Flex>
+	</Flex>
 
-export default Header
+export default Footer

@@ -1,0 +1,30 @@
+.link {
+	font-family: var(--helvetica);
+	cursor: pointer;
+	text-decoration: none;
+	display: flex;
+	justify-content: center;
+	align-items: center
+}
+
+.link--big {
+	color: var(--whiteDarker);
+	font-size: var(--font-small);
+	padding: 0 12px 0 12px;
+	height: 38px;
+}
+
+.link--login {
+	margin-right: 12px;
+}
+
+.link--startTrial {
+	background-color: var(--darker)
+}
+
+.link--small {
+	padding: 5px 0 5px 0;
+	color: var(--greyLight);
+	font-size: var(--font-smaller);
+}
+
