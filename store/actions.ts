@@ -5,6 +5,7 @@ const LOAD = '@action/LOAD'
 const LOADED = '@action/LOADED'
 const SEARCH = '@action/SEARCH'
 const SORT = '@action/SORT'
+const ERROR = '@action/ERROR'
 
 export const load = createAction(LOAD, action => 
 	(programType: ProgramType) => action(programType)
@@ -20,4 +21,8 @@ export const search = createAction(SEARCH, action =>
 
 export const sort = createAction(SORT, action => 
 	(sortTerm: SortTerm) => action(sortTerm)
+)
+
+export const error = createAction(ERROR, action => 
+	() => action()
 )

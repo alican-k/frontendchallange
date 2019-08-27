@@ -1,7 +1,10 @@
 import React, { FunctionComponent } from 'react'
+import { withProps } from 'recompose'
 import Card from '../Card'
-import { Flex } from '../styled'
+import { Flex, P } from '../styled'
 import { Program, LoadState } from '../../types'
+
+const FeedBack = withProps({className: 'font--normalDarker'})(P)
 
 interface ProgramListProps {
 	programs: Program[]
@@ -11,11 +14,11 @@ interface ProgramListProps {
 
 const ProgramList: FunctionComponent<ProgramListProps> = ({ programs, load, error }) => 
 	error
-		? <p>error</p>
+		? <FeedBack>Opps! Something went wrong...</FeedBack>
 		: load === 'loading'
-			? <p>loading</p>
+			? <FeedBack>Loading...</FeedBack>
 			: load === 'loaded' && programs.length === 0 
-				? <p>no result</p>
+				? <FeedBack>There is no result based on your criteria!</FeedBack>
 				: (
 					<Flex wrap className='cards'>
 						{programs.map(program => {

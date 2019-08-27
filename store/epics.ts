@@ -6,16 +6,20 @@ import { map as r_map, dissoc, compose, path, prop } from 'ramda'
 import { Action, RootState, ProgramType, SortTerm } from '../types'
 import * as actions from "../store/actions"
 
+const getUrl = programType => `http://localhost:3000/api?type=${programType}`
+
 const loadEpic: Epic<Action, Action, RootState> = (action$, state$) =>
 	action$.pipe(
 		filter(isActionOf(actions.load)),
 		switchMap(() => {
 			const {programType} = state$.value
-			return fetch(`http://localhost:3000/api?type=${programType}`)
+			return from(fetch(getUrl(programType))).pipe(
+				switchMap(response => response.json()),
+				map(responseToState),
+				map(actions.loaded),
+				catchError(error => of(actions.error())),
+			)
 		}),
-		switchMap(response => response.json()),
-		map(responseToState),
-		map(actions.loaded)
 	)
 
 export default [

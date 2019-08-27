@@ -18,7 +18,7 @@ const reducer = (state = initialState, action: Action): RootState => {
 		case getType(actions.load): {
 			const load = 'loading'
 			const programType = action.payload || state.programType
-			return {...state, load, programType}
+			return {...state, load, programType, error: false}
 		}
 		case getType(actions.loaded): {
 			const programs: Program[] = action.payload as Program[]
@@ -32,6 +32,9 @@ const reducer = (state = initialState, action: Action): RootState => {
 		case getType(actions.sort): {
 			const sortTerm: SortTerm = (action.payload as SortTerm)
 			return {...state, sortTerm}
+		}
+		case getType(actions.error): {
+			return {...state, error: true, load: null, programs: []}
 		}
     default:
       return state

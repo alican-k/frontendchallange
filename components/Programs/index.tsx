@@ -29,7 +29,7 @@ const Programs: FunctionComponent<ProgramsProps> =
 		const filtered = filterPrograms(programs, searchTerm, sortTerm)
 
 		return (
-			<Flex column full className="programs">
+			<Flex column full>
 				<Flex iCenter jBetween className='inputBar'>
 					<Search onSearch={searchAction} />
 					<Sort sortTerm={sortTerm} sort={sortAction} />
