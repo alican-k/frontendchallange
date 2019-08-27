@@ -4,7 +4,40 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "jest"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testMatch": [
+      "**/*.(test|spec).(ts|tsx)"
+    ],
+    "globals": {
+      "ts-jest": {
+        "babelConfig": true,
+        "tsConfig": "jest.tsconfig.json"
+      }
+    },
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text",
+      "text-summary"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/mocks.js",
+      "\\.(css|less)$": "<rootDir>/__mocks__/mocks.js"
+    }
   },
   "dependencies": {
     "@emotion/core": "^10.0.15",
@@ -27,9 +60,14 @@
   },
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^24.0.18",
     "@types/node": "^12.7.1",
     "@types/react": "^16.8.25",
     "@types/react-dom": "^16.8.5",
+    "jest": "^24.9.0",
+    "jsdom": "^15.1.1",
+    "react-test-renderer": "^16.9.0",
+    "ts-jest": "^24.0.2",
     "typescript": "^3.5.3"
   }
 }

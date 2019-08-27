@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react'
-import {Flex, A, P, } from './styled'
+import { Flex, A, P } from './styled'
 import { withProps } from 'recompose'
 
 const Seperator = withProps({ className: 'seperator'})(Flex)

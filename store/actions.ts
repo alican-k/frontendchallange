@@ -1,5 +1,5 @@
 import { createAction } from "typesafe-actions"
-import { Program, ProgramType } from '../types'
+import { Program, ProgramType, SortTerm } from '../types'
 
 const LOAD = '@action/LOAD'
 const LOADED = '@action/LOADED'
@@ -19,5 +19,5 @@ export const search = createAction(SEARCH, action =>
 )
 
 export const sort = createAction(SORT, action => 
-	(sortTerm: string) => action(sortTerm)
+	(sortTerm: SortTerm) => action(sortTerm)
 )
